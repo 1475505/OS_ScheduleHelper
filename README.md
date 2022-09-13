@@ -1,1 +1,1 @@
-alias ls="echo 龙神牛逼"
+alias ls="echo 亮神牛逼"
