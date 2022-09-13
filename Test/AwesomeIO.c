@@ -1,21 +1,29 @@
 #include <stdio.h>
 #include <unistd.h>
-
-int x[1024][1024] = {0};
+#include "thread.h"
+void FilePrint(int id);
 
 int main()
 {
+    
     int i, j, pid;
-    for(i = 0; i < 10; i++)
+    for(i = 0; i < 8000; i++)
     {
-        pid = fork();
+        create(FilePrint);
     }
-    for(i = 0; i < 1024; i++)
-    {
-        for(j = 0; j < 1024; j++)
-        {
-            x[i][j] = pid;
-        }
-    }
+    join();
     return 0;
 }
+
+void FilePrint(int id)
+{
+    int i;
+    FILE * fp = fopen("test.txt", "w");
+    for(i = 0; i < 8192; i++)
+    {
+        fprintf(fp, "%d\n", id);
+    }
+    fclose(fp);
+}
+// gcc AwesomeIO.c -lpthread
+// ./a.out
