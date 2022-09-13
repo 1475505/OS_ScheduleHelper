@@ -7,7 +7,7 @@ int main()
 {
     
     int i, j, pid;
-    for(i = 0; i < 8000; i++)
+    for(i = 0; i < 20000; i++)
     {
         create(FilePrint);
     }
