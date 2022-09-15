@@ -9,7 +9,7 @@ int main()
     printf("beginning...\n");
     clock_t begin = clock();
     int i, j, pid;
-    for(i = 0; i < 20000; i++)
+    for(i = 0; i < 1000; i++)
     {
         create(FilePrint);
     }
@@ -22,10 +22,10 @@ void FilePrint(int id)
 {
     int i;
     FILE * fp = fopen("test.txt", "w");
-    for(i = 0; i < 8192; i++)
+    for(i = 0; i < 81920; i++)
     {
         fprintf(fp, "%d\n", id);
-    }
+    } 
     fclose(fp);
 }
 // gcc AwesomeIO.c -lpthread
